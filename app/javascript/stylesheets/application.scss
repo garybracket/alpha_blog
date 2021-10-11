@@ -1,5 +1,29 @@
 @import "bootstrap";
 
+// Entire navbar styling
+.navbar {
+  background-color: black;
+
+}
+
+.jumbo-bg {
+  color: #228B22;
+  background-image: url('/assets/image-bg.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#logo {
+  float: left;
+  font-size: 1.0cm;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+.nav-link {
+  color: white !important;
+}
 /* unvisited link */
 a:link {
   color: red;
