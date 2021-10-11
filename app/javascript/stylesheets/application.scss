@@ -1,19 +1,22 @@
 @import "bootstrap";
 
-// Entire navbar styling
+
+.page-content {
+  background-color: lightgrey;
+}
 .navbar {
   background-color: black;
-
 }
-
 .jumbo-bg {
-  color: red;
-  font-weight: bold;
   background-image: url('/assets/image-bg.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+.nav-link {
+  color: white !important;
+}
+
 #logo {
   float: left;
   font-size: 1.0cm;
@@ -22,25 +25,6 @@
   letter-spacing: -1px;
   font-weight: bold;
 }
-.nav-link {
-  color: white !important;
-}
-/* unvisited link */
-a:link {
-  color: red;
-}
-
-/* visited link */
-a:visited {
-  color: green;
-}
-
-/* mouse over link */
-a:hover {
-  color: hotpink;
-}
-
-/* selected link */
-a:active {
-  color: blue;
+#footer {
+  color: grey;
 }
