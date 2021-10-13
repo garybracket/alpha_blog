@@ -8,7 +8,7 @@ default: &default
   cache_path: tmp/cache/webpacker
   webpack_compile_output: true
   # asset pipeline configuration for images
-  
+
   # Additional paths webpack should lookup modules
   # ['app/assets', 'engine/foo/app/assets']
   additional_paths: []
@@ -84,7 +84,7 @@ production:
   <<: *default
 
   # Production depends on precompilation of packs prior to booting for performance.
-  compile: false
+  compile: yes
 
   # Extract and emit a css file
   extract_css: true
