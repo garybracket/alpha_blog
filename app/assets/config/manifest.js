@@ -1,2 +1,2 @@
 //= link_tree ../images
-//= link_directory ../stylesheets .scss .erb
+//= link_directory ../stylesheets .scss
