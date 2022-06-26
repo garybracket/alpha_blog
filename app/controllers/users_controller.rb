@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @articles = @user.articles
   end
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -30,6 +34,16 @@ class UsersController < ApplicationController
       redirect_to articles_path
     else
       render 'new'
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice] = "User was deleted successfully."
+      redirect_to users_path
+    else
+      flash[:notice] = "User could NOT be deleted"
     end
   end
 
