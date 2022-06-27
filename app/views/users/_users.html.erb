@@ -8,7 +8,7 @@
           </div>
           <div class="card-body">
             <td><div class="container text-center", "img-fluid">
-              <%= link_to gravatar_for(user, size: 50), user %>
+              <%= link_to gravatar_for(user, size: 100), user %>
             </div></td>
             <p class="card-text"> <td><%= pluralize(user.articles.count, "article") %></td></p>
             <%= link_to "View Profile", user_path(user), class: "btn btn-outline-success" %>
