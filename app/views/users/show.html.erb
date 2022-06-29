@@ -1,4 +1,4 @@
-<h1 class="text-center p-3"><%= @user.username %>'s Profile</h1>
+<h1 class="text-center p-3"><%= "(Admin) " if @user.admin? %><%= @user.username %>'s Profile</h1>
 <div class="container text-center", "img-fluid">
   <%= gravatar_for @user, size: 200 %>
 </div>

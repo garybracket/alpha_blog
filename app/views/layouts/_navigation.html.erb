@@ -12,7 +12,9 @@
             Articles
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if logged_in? %>
             <li><%= link_to "Create new Article", new_article_path, class: "dropdown-item" %></li>
+            <% end %>
             <li><%= link_to "View Articles", articles_path, class: "dropdown-item" %></li>
           </ul>
         </li>
@@ -22,16 +24,20 @@
         </li>
 
         <li class="nav-item">
-          <%= link_to "About", about_path, class: "nav-link" %>
-        </li>
-
-        <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Can't Touch Me</a>
         </li>
 
         <% if logged_in? %>
-          <li class="nav-item">
-            <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= "(Admin)" if current_user.admin? %> Profile [<%= current_user.username %>]
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %></li>
+              <li><%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %></li>
+              <li><%= link_to "Delete your account", user_path(current_user), class: "dropdown-item text-danger", method: :delete,
+              data: {confirm: "Are you sure you want to delete your account and all articles?"} %> </li>
+            </ul>
           </li>
           <li class="nav-item">
             <%= link_to "Logout", logout_path, class: "nav-link", method: :delete  %>
@@ -44,6 +50,9 @@
             <%= link_to "Sign up", signup_path, class: "nav-link" %>
           </li>
         <% end %>
+        <li class="nav-item">
+          <%= link_to "About", about_path, class: "nav-link" %>
+        </li>
 
       </ul>
 
