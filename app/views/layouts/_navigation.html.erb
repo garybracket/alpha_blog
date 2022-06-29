@@ -30,7 +30,14 @@
         <% if logged_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <%= "(Admin)" if current_user.admin? %> Profile [<%= current_user.username %>]
+              <%= "(Admin)" if current_user.admin? %> Profile
+              <% if current_user.admin? %>
+                <span class="admin-color"> [<%= current_user.username %>] </span>
+              <% else %>
+              [<%= current_user.username %>]
+              <% end %>
+
+
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %></li>
