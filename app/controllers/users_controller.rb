@@ -31,7 +31,7 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "Welcome to the G Alpha Blog, #{@user.username}, you're now signed up!"
+      flash[:notice] = "Welcome to the G Blog, #{@user.username}, you're now signed up!"
       redirect_to articles_path
     else
       render 'new'
