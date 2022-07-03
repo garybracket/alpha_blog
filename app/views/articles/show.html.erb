@@ -7,6 +7,10 @@
             by <span class="admin-color"> <%= "(Admin)" if @article.user.admin? %> <%= link_to @article.user.username, user_path(@article.user) if @article.user %> </span>
             <br />
             <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
+            <% if @article.categories.any? %>
+            <br />
+              <%= render @article.categories %>
+            <% end %>
           </div>
           <div class="card-body">
             <div class="card-text text-start"> <td><%= simple_format(@article.description) %></td></div>

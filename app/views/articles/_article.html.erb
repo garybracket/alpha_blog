@@ -8,6 +8,10 @@
               by <span class="admin-color"> <%= "(Admin)" if article.user.admin? %> <%= link_to article.user.username, user_path(article.user) %> </span>
               <td><div class="container text-center", "img-fluid">
                 <%= link_to gravatar_for(article.user, size: 50), article.user %>
+                <% if article.categories.any? %>
+                <br />
+                  <%= render article.categories %>
+                <% end %>
               </div></td>
             <% end %>
           </div>

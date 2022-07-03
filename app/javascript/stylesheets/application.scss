@@ -5,6 +5,19 @@
   flex: 1 0 auto;
   background-color: lightgrey;
 }
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
 .navbar {
   background-color: black;
 }
@@ -19,7 +32,7 @@
 }
 
 .admin-color {
-  color: #FF0000
+  color: #FF3333
 }
 #logo {
   float: left;

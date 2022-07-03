@@ -1,3 +1,64 @@
 <div class="page-content">
-  <h1>This is the About page my guy.</h1>
+  <h1 class="d-flex justify-content-center">About this site</h1>
+  <h4 class="d-flex text-center">This site is designed to allow users to sign-up, login, and post their
+  own articles with titles and description text. There is also an admin functionality
+  that allows admins to edit or delete any articles, or users that they wish to.
+  This site should also appear and be functional on any number of devices, including
+  mobile devices! If you see any overlapping or other odd behavior on your devices,
+  please feel free to create an article about it, as we do not have email functionality
+  built into the site just yet :)
+<br />
+<br />
+<br />
+<br />
+  **To get a profile picture, you would need to use Gravatar, which can be logged into using a WordPress account if you have one. This app searches Gravatar for your sign-up email, and if it matches your Gravatar/Wordpress, it will use your default picture! How cool is that?**
+<br />
+<br />
+<br />
+<br />
+ToDo: Program functionality for users to upload their own profile picture? Will need to make use of document bucket, such as Amazon AWS, or Box, while still keeping the web application completely built using free tools!
+<br />
+<br />
+ToDo: Bio section?
+<br />
+<br />
+<br />
+<br />
+Next Ruby on Rails project: LiveChat type of app to utilize network protocols and Ruby / Rails "cables".
+<br />
+<br />
+<br />
+<br />
+This web application is not a "complete" web app, but rather an app built while learning to learn and understand certain functionalities, such as login sessions, user/article models, customizable views, and of course, for fun.
+I created this web application using Ruby (3) on Rails (6.1.4) from scratch as part of learning the entire full-stack framework for Ruby on Rails. Sign-Ups work, Logins work. Categories are implemented and uses a many-to-many association. The search algorithm isn't built, not sure it's needed but might do it anyway just to write the functionality once to understand how to build it. The Can't Touch Me link is meant to be disabled, so it won't do anything, hence the name.
+<br />
+<br />
+The About page is empty, but might add content at some point. Perhaps this article itself should have been on that page instead.
+<br />
+<br />
+This website can support upto 9,000+ articles/users completely free, and was created using fully free technologies.
+<br />
+<br />
+Information for users: The information available to me, even as the web app builder, is limited to your username, email, and created/updated time/date. ***ALL PASSWORDS ARE HASHED AND SALTED BY DEFAULT***, therefore they CANNOT be decrypted, or viewed, even at the database level, or in the event of a hack. Your email is only available to the app creator, as I can query the db for your user information. This information cannot be queried by anybody but the app owner, including Admins. Your information as a user shows up like this, and ONLY if I connect to the backend and query the Database:
+<br />
+<br />
+{
+  <br />
+id: 1,
+username: "gary",
+email: "example@example.com",
+created_at: Thu, 30 Jun 2022 17:10:53.676187000 UTC +00:00,
+updated_at: Thu, 30 Jun 2022 17:10:53.676187000 UTC +00:00,
+password_digest: "[FILTERED]",
+admin: false>
+  <br />
+}
+<br />
+<br />
+Admins can Edit/Delete articles, only Delete users, and cannot Edit the profiles of other users.
+<br />
+<br />
+By the way, this web app is COMPLETELY responsive on ALL devices like cell phones, tablets, etc.
+
+  </h4>
 </div>
