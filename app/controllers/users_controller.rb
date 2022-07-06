@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 before_action :require_user, only: [:edit, :update]
 before_action :require_same_user, only: [:edit, :update, :destroy]
+before_action :require_admin, only: [:promote, :demote]
 
   def show
     @articles = @user.articles.paginate(page: params[:page], per_page: 5)
@@ -23,7 +24,7 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Welcome to the G Blog, #{@user.username}, you're now signed up!"
-      redirect_to articles_path
+      redirect_to user_path(@user)
     else
       render 'new'
     end
@@ -39,16 +40,31 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
   end
 
   def destroy
-      if @user.destroy
-        session[:user_id] = nil if @user == current_user
-        flash[:notice] = "Account and all associated articles successfully deleted"
-        redirect_to articles_path
+    if @user.destroy
+      session[:user_id] = nil if @user == current_user
+      flash[:notice] = "Account and all associated articles successfully deleted"
+      redirect_to articles_path
     else
-      flash[:notice] = "User could NOT be deleted"
+    flash[:notice] = "User could NOT be deleted"
     end
   end
 
+  def demote
+    @user = User.find(params[:user_id])
+    @user.mod = false
+    @user.save
+    redirect_to user_path(@user)
+  end
+
+  def promote
+    @user = User.find(params[:user_id])
+    @user.mod = true
+    @user.save
+    redirect_to user_path(@user)
+  end
+
   private
+
   def user_params
   params.require(:user).permit(:username, :email, :password)
   end
@@ -61,6 +77,13 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
     if current_user != @user && !current_user.admin?
       flash[:alert] = "You can only edit or delete your own account"
       redirect_to @user
+    end
+  end
+
+  def require_admin
+    if !(logged_in? && current_user.admin?)
+      flash[:alert] = "Only admins can perform that action"
+      redirect_to categories_path
     end
   end
 

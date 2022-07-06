@@ -1,4 +1,4 @@
-<h1 class="text-center p-3"><%= "(Admin) " if @user.admin? %><%= @user.username %>'s Profile</h1>
+<h1 class="text-center p-3"><%= "(Admin) " if @user.admin? %> <%= "(Mod) " if @user.mod? %><%= @user.username %>'s Profile</h1>
 <div class="container text-center", "img-fluid">
   <%= gravatar_for @user, size: 200 %>
 </div>
@@ -6,6 +6,21 @@
   <% if logged_in? && @user == current_user %>
     <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-info" %>
   <% end %>
+</div>
+
+<div class="container text-center mt-4">
+  <% if logged_in? && current_user.admin? %>
+    <%= link_to "Promote User", promote_user_path(@user), method: :patch, class: "btn btn-info" %>
+  <% end %>
+  <br />
+  <br />
+  <% if logged_in? && current_user.admin? %>
+    <%= link_to "Demote User", demote_user_path(@user), method: :patch, class: "btn btn-info" %>
+  <% end %>
+</div>
+
+<div class="container text-center mt-4">
+
 </div>
 
 <h3 class="text-center p-3">Articles</h3>

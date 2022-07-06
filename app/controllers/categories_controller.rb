@@ -36,14 +36,14 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def destroy
-    if @category.destroy
-      flash[:notice] = "Category was deleted successfully."
-      redirect_to categories_path
-    else
-      flash[:notice] = "Category could NOT be deleted"
-    end
-  end
+  # def destroy
+  #   if @category.destroy
+  #     flash[:notice] = "Category was deleted successfully."
+  #     redirect_to categories_path
+  #   else
+  #     flash[:notice] = "Category could NOT be deleted"
+  #   end
+  # end
 
 
 

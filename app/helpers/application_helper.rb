@@ -8,4 +8,5 @@ module ApplicationHelper
     image_tag(gravatar_url, alt: user.username, class: "img-fluid, shadow-lg")
   end
 
+
 end

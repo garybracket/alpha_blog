@@ -7,18 +7,18 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
                               password: "password", admin: true)
   end
 
-  test "should get index" do
+  test "should get category index" do
     get categories_url
     assert_response :success
   end
 
-  test "should get new" do
+  test "should get new category" do
     sign_in_as (@admin_user)
     get new_category_url
     assert_response :success
   end
 
-  test "should create category" do
+  test "should create category if admin" do
     sign_in_as (@admin_user)
     assert_difference('Category.count', 1) do
       post categories_url, params: { category: { name: "Travel" } }
