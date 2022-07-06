@@ -42,13 +42,17 @@
         <% if logged_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <%= "(Admin)" if current_user.admin? %> <%= "(Mod)" if current_user.mod? %> Profile
+              <%= "(Admin)" if current_user.admin? %>
+              <%= "(Mod)" if current_user.mod? %>
+              <%= "(Owner)" if current_user.owner? %> Profile
               <% if current_user.admin? %>
                 <span class="admin-color"> [<%= current_user.username %>] </span>
               <% elsif current_user.mod? %>
-              <span class="mod-color"> [<%= current_user.username %>] </span>
+                <span class="mod-color"> [<%= current_user.username %>] </span>
+              <% elsif current_user.owner? %>
+                <span class="owner-color"> [<%= current_user.username %>] </span>
               <% else %>
-              [<%= current_user.username %>]
+                [<%= current_user.username %>]
               <% end %>
 
 

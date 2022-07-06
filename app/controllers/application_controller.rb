@@ -22,10 +22,4 @@ class ApplicationController < ActionController::Base
       redirect_to user_path
     end
   end
-
-  # def demote_user(user)
-  #   user.mod = false
-  #   user.save
-  # end
-
 end

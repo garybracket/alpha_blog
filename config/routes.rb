@@ -6,11 +6,15 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   resources :users, except: [:new] do
     member do
-      get 'demote'
-      get 'promote'
+      get 'demote_mod'
+      get 'promote_mod'
+      get 'promote_admin'
+      get 'demote_admin'
     end
-    patch :promote
-    patch :demote
+    patch :promote_mod
+    patch :demote_mod
+    patch :promote_admin
+    patch :demote_admin
   end
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
