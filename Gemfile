@@ -21,7 +21,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap5'
 gem 'rexml', require: false
-gem 'kaminari'
+# gem 'kaminari'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
