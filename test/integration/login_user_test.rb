@@ -5,7 +5,7 @@ class LoginUserTest < ActionDispatch::IntegrationTest
   setup do
     @admin_user = User.create(username: "johndoe", email: "johndoe@example.com",
                               password: "password", admin: true)
-    sign_in_as(@admin_user)
+    # sign_in_as(@admin_user)
     @normal_user = User.create(username: "johnny", email: "johnny@example.com",
                               password: "password", admin: false)
   end
