@@ -6,39 +6,34 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Articles
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <% if logged_in? %>
-            <li><%= link_to "Create new Article", new_article_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Create new Article", new_article_path, class: "dropdown-item" %></li>
             <% end %>
             <li><%= link_to "View Articles", articles_path, class: "dropdown-item" %></li>
           </ul>
         </li>
-
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categories
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <% if logged_in? && current_user.admin? %>
-            <li><%= link_to "Create new Category", new_category_path, class: "dropdown-item" %></li>
+            <% if logged_in? %>
+              <li><%= link_to "Create new Category", new_category_path, class: "dropdown-item" %></li>
             <% end %>
             <li><%= link_to "View Categories", categories_path, class: "dropdown-item" %></li>
           </ul>
         </li>
-
         <li class="nav-item">
           <%= link_to "Users", users_path, class: "nav-link" %>
         </li>
-
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Can't Touch Me</a>
         </li>
-
         <% if logged_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,8 +49,6 @@
               <% else %>
                 [<%= current_user.username %>]
               <% end %>
-
-
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %></li>
@@ -78,9 +71,7 @@
         <li class="nav-item">
           <%= link_to "About", about_path, class: "nav-link" %>
         </li>
-
       </ul>
-
       <form class="d-flex">
         <input class="form-control me-2" justify-content-right type="search" placeholder="Not Functional Yet" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
