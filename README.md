@@ -17,7 +17,7 @@ PostgreSQL
 rails db:migrate
 
 * Deployment instructions
-Autodeployed through GitHub -> Heroku pipeline. Any push I make to main will begin to build into Heroku.
+Autodeployed through GitHub -> Heroku pipeline. **changing soon to render
 * ...
 
 Validations for User class:
@@ -27,3 +27,12 @@ Validations for User class:
 - email must be present and unique, length max of 105 characters
 
 - validate email format using regex (regular expression)
+
+full steps to build after cloning git repo are
+bundle install
+rails db:migrate
+rails assets:precompile
+rails s
+
+the last command will start the rails server
+browse to 127.0.0.1 to enter app!
